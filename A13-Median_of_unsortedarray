@@ -1,0 +1,98 @@
+In probability theory and statistics, a median is described as the number separating the higher half of a sample, a population, or a probability distribution, from the lower half. The median of a finite list of numbers can be found by arranging all the numbers from lowest value to highest value and picking the middle one.
+Example:
+ For getting the median of input array { 12, 11, 15, 10, 20 }, first sort the array. We get { 10, 11, 12, 15, 20 } after sorting. Median is the middle element of the sorted array which is 12.
+Pr-requisites:-
+
+Loops
+Arrays
+Objective: -
+
+To understand the concept of One-dimensional Arrays
+
+//code//
+
+#include<stdio.h>
+int main()
+{
+    int i,j,k,temp1,temp2,a,b;
+    scanf("%d",&a);
+    scanf("%d",&b);
+    int ar1[a];
+    int ar2[b];
+    
+    for(i=0;i<a;i++)
+    {
+        scanf("%d",&ar1[i]);
+    }
+    for(i=0;i<b;i++)
+    {
+        scanf("%d",&ar2[i]);
+    }
+    //printf("\n");
+    for(i=0;i<a-1;i++)
+    {
+        for(j=0;j<a-i-1;j++)
+        {
+            if(ar1[j]>ar1[j+1])
+            {
+                temp1=ar1[j];
+                ar1[j]=ar1[j+1];
+                ar1[j+1]=temp1;
+            }
+        }
+    }
+    //printf("Sorted array1\t");
+    //for(i=0;i<a;i++)
+    //{
+    //    printf("%d\t",ar1[i]);    
+    //}
+    //printf("\n");
+    for(i=0;i<b-1;i++)
+    {
+        for(k=0;k<b-i-1;k++)
+        {
+            if(ar2[k]>ar2[k+1])
+            {
+                temp2=ar2[k];
+                ar2[k]=ar2[k+1];
+                ar2[k+1]=temp2;
+            }
+        }
+    }
+    //printf("Sorted array2\t");
+    //for(i=0;i<b;i++)
+    //{
+    //    printf("%d\t",ar2[i]);
+    //}
+    float med1;
+    if(a%2==0)
+    {
+        int m2=a/2;
+        int m1=a/2-1;
+        med1=(ar1[m1]+ar1[m2])/2.0;
+        printf("\nMedian of array1 : %g",med1);
+    }
+    else
+    {
+        int m1=a/2;
+        med1=ar1[m1];
+        printf("\nMedian of array1 : %g",med1);
+    }
+    float med2;
+    if(b%2==0)
+    {
+        int m2=b/2;
+        int m1=b/2-1;
+        med2=(ar2[m1]+ar2[m2])/2.0;
+        printf("\nMedian of array2 : %g",med2);
+    }
+    else
+    {
+        int m1=b/2;
+        med2=ar2[m1];
+        printf("\nMedian of array2 : %g",med2);
+    }
+    printf("\nMedian of both arrays : %g",(med1+med2)/2);
+    
+return 0;    
+}
