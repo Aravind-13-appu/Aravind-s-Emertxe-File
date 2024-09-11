@@ -1,0 +1,62 @@
+Description:
+
+In mathematics, the sieve of Eratosthenes, one of a number of prime number sieves, is a simple, ancient algorithm for finding all prime numbers up to any given limit. It does so by iteratively marking as composite (i.e., not prime) the multiples of each prime, starting with the multiples of 2.
+The sieve of Eratosthenes is one of the most efficient ways to find all of the smaller primes. It is named after Eratosthenes of Cyrene, a Greek mathematician.
+Pr-requisites:-
+
+Loops
+Operators
+Arrays
+Objective: -
+
+To understand the concept of if-else constructs
+Arrays
+
+//code//
+
+#include<stdio.h>
+int main()
+{
+    int n,i,j;
+    //printf("Enter Value ");
+    scanf("%d",&n);
+    if(n<=1)
+    {
+        printf("Please enter a positive number which is > 1");
+        return 1;
+    }
+    int ar[n];
+    for(i=0;i<n;i++)
+    {
+        ar[i]=i+2;
+    }
+    
+    for(i=2;i<n;i++)
+    {
+        if(ar[i]%2==0 || ar[i]%3==0  || ar[i]%25==0)
+        {
+            ar[i]=0;
+        }
+        else
+        {
+           for(j=5;j*j<=i;j+=6)
+           {
+               if(ar[i]%j==0 || ar[i]%(j+2)==0)
+               {
+                   ar[i]=0;
+                   break;
+               }
+           }
+        }
+    }
+    printf("The primes Less than or equal to %d are : ",n);
+    for(i=0;i<n-1;i++)
+    {
+        if(ar[i]!=0)
+        {
+            printf("%d,\t",ar[i]);
+        }
+    }
+    printf("\n");
+    return 0;
+}
