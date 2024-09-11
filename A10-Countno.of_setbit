@@ -1,0 +1,33 @@
+Description: 
+
+Read a number from the user. Check number of set bits in a given number. If number of set bits is odd, then Bit parity is odd. Similarly, If number of set bits is even, then Bit parity is even. 
+For example, If num = 7, number of set bits = 3 which is odd number, so bit parity is odd. Similarly, if num = 3, number of set bits = 2, bit parity should be even
+
+//code//
+
+#include<stdio.h>
+int main()
+{
+    unsigned int value,mask=1,count=0;
+    
+    scanf("%u",&value);
+    
+    for(int i=0;i<32;i++)
+    {
+        if(value & mask)
+        {
+        count++;
+        }
+        mask <<= 1;
+    }    
+    printf("Number of set bits = %d",count);
+    if(count%2==0)
+    {
+        printf("\nBit parity is Even");
+    }
+    else
+    {
+        printf("\nBit parity is Odd");
+    }
+    return 0;
+}
