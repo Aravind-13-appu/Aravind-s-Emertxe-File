@@ -1,0 +1,63 @@
+Description:
+
+Suppose, in a week let us assume first day is 'Sunday', then second day will be 'Monday' and so on. If first day is 'Monday' then the second day will be 'Tuesday' and so on.
+Pr-requisites:-
+
+Arithmetic operators
+Switch Case
+Objective: -
+
+To understand the concept of Switch Case
+
+//code//
+
+#include<stdio.h>
+int main()
+{
+    int day,n,f;
+    scanf("%d",&n);
+        if(n<=0 || n>=366)
+    {
+        printf("Error: Invalid input, n value should be > 0 and <= 365");
+        return 1;
+    }
+    else
+    {
+        scanf("%d",&f);
+        day=((n%7)+(f-1))%7;
+    }
+    if(f<1 || f>7)
+    {
+        printf("Error: Invalid input, first day should be > 0 and <= 7");
+        return 1;
+    }
+    
+        switch(day)
+        {
+            case 1:
+                 printf("The day is Sunday");
+                break;
+            case 2:
+                printf("The day is Monday");
+                break;
+            case 3:
+                printf("The day is Tuesday");
+                break;
+            case 4:
+                printf("The day is Wednesday");
+                break;
+            case 5:
+                printf("The day is Thursday");
+                break;
+            case 6:
+                printf("The day is Friday");
+                break;
+            case 0:
+                printf("The day is Saturday");
+                break;
+            default:
+            printf("Error: Invalid input, first day should be > 0 and <= 7");
+        }
+    return 0;
+    
+}
