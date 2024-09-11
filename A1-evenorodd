@@ -1,0 +1,50 @@
+Description:
+
+• The user entered number should identified whether its a odd or a even number. Mention its sign too.
+
+Pr-requisites:-
+
+• Arithmetic Operators
+
+• Nested if-else construct
+
+Objective: -
+
+• To understand the concept of Nested if-else
+
+//code//
+#include<stdio.h>
+int main()
+{
+    int num;
+    printf("Enter the value of 'n' : ");
+    scanf("%d",&num);
+    
+    if(num>0)
+    {
+        if(num%2==0)
+        {
+            printf("%d is positive even number",num);
+        }
+        else
+        {
+            printf("%d is positive odd number",num);
+        }
+    }
+    else if(num<0)
+    {
+        if(num%2==0)
+        {
+            printf("%d is negative even number",num);
+        }
+        else
+        {
+            printf("%d is negative odd number",num);
+        }
+    }
+    else
+    {
+        printf("%d is neither odd nor even",num);
+    }
+    return 0;
+}
