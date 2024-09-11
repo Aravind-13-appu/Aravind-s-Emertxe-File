@@ -1,0 +1,43 @@
+Description:
+
+
+a. Read number num from user.
+b. Read number n from user.
+c. Read number pos from user.
+d. Invert the n number of bits from pos positionth bit of num.
+e. Return the new value of num
+If num is 10, n is 3, and pos is 5
+                        7 6 5 4 3 2 1 0
+               10 -> 0 0 0 0 1 0 1 0
+return value -> 0 0 1 1 0 0 1 0
+So the function should return 50 (0 0 1 1 0 0 1 0)
+
+Pre-requisites:
+
+Bitwise operators
+Functions
+
+//code//
+
+#include <stdio.h>
+
+int toggle_nbits_from_pos(int num, int n, int pos)
+{
+    unsigned int mask=(1<<n)-1;
+    mask=mask<<pos-n+1;
+    num=num^mask;
+    return num;
+}
+
+int main()
+{
+    int num, n, pos, res = 0;
+    
+    printf("Enter num, n and pos:");
+    scanf("%d%d%d", &num, &n, &pos);
+    
+    res = toggle_nbits_from_pos(num, n, pos);
+    
+    printf("Result = %d\n", res);
+    return 0;
+}
