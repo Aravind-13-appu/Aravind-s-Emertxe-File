@@ -1,0 +1,26 @@
+Description:
+
+Read a number, M and N from the user. You need to check whether N th bit is set(1) or not, If yes, then you need to clear the M th bit of the number and print the updated value of num
+Pre-requisites:
+
+Bitwise operators
+
+//code//
+
+#include<stdio.h>
+int main()
+{
+    unsigned num,N,M;
+    scanf("%u",&num);
+    scanf("%u",&N);
+    scanf("%u",&M);
+    
+    unsigned int mask = 1<<N;
+    if(num&mask)
+    {
+        unsigned clearmask = ~(1<<M);
+        num &= clearmask;
+    }
+    printf("Updated value of num is %u",num);
+    return 0;
+}
